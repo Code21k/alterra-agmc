@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "873471ce-d117-4061-8899-bc5a612b4605",
+		"name": "Alterra-AGMC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RentABook",
+			"item": [
+				{
+					"name": "books",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{RENT_URL}}/book",
+							"host": [
+								"{{RENT_URL}}"
+							],
+							"path": [
+								"book"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{RENT_URL}}/book/:id",
+							"host": [
+								"{{RENT_URL}}"
+							],
+							"path": [
+								"book",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1234"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{RENT_URL}}/book?client_id=1234&client_key=CLIENT01&client_secret=SECRET01&status=true",
+							"host": [
+								"{{RENT_URL}}"
+							],
+							"path": [
+								"book"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "1234"
+								},
+								{
+									"key": "client_key",
+									"value": "CLIENT01"
+								},
+								{
+									"key": "client_secret",
+									"value": "SECRET01"
+								},
+								{
+									"key": "status",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{RENT_URL}}/book/:id?id=1234&title=Judul Buku Satu&isbn=1-234-5678-9101112-13&writer=Dr. Who",
+							"host": [
+								"{{RENT_URL}}"
+							],
+							"path": [
+								"book",
+								":id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1234"
+								},
+								{
+									"key": "title",
+									"value": "Judul Buku Satu"
+								},
+								{
+									"key": "isbn",
+									"value": "1-234-5678-9101112-13"
+								},
+								{
+									"key": "writer",
+									"value": "Dr. Who"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1234"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{RENT_URL}}/book/:id",
+							"host": [
+								"{{RENT_URL}}"
+							],
+							"path": [
+								"book",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1234"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Binance",
+			"item": [
+				{
+					"name": "Get recent 1000 BTCUSDT",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MBX-APIKEY",
+								"value": "{{api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BINANCE_URL}}/api/v1/klines?symbol=LTCBTC&interval=1m&limit=1000",
+							"host": [
+								"{{BINANCE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"klines"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "LTCBTC"
+								},
+								{
+									"key": "interval",
+									"value": "1m"
+								},
+								{
+									"key": "limit",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get BTCUSDT klines data with 1 day interval",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MBX-APIKEY",
+								"value": "{{api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BINANCE_URL}}/api/v1/klines?symbol=LTCBTC&interval=1d&startTime=1661965200000&endTime=1662569999000",
+							"host": [
+								"{{BINANCE_URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"klines"
+							],
+							"query": [
+								{
+									"key": "symbol",
+									"value": "LTCBTC"
+								},
+								{
+									"key": "interval",
+									"value": "1d"
+								},
+								{
+									"key": "startTime",
+									"value": "1661965200000",
+									"description": "1 September 2022 00:00:00"
+								},
+								{
+									"key": "endTime",
+									"value": "1662569999000",
+									"description": "7 September 2022 23:59:59"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get information of your account",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-MBX-APIKEY",
+								"value": "{{api_key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BINANCE_URL}}/api/v3/account?recvWindow=60000&timestamp={{timestamp}}&signature={{signature}}",
+							"host": [
+								"{{BINANCE_URL}}"
+							],
+							"path": [
+								"api",
+								"v3",
+								"account"
+							],
+							"query": [
+								{
+									"key": "recvWindow",
+									"value": "60000"
+								},
+								{
+									"key": "timestamp",
+									"value": "{{timestamp}}"
+								},
+								{
+									"key": "signature",
+									"value": "{{signature}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"const ts  = Date.now();",
+							"pm.environment.set(\"timestamp\", ts);",
+							"",
+							"let paramsObject = {};",
+							"",
+							"const binance_api_secret = pm.environment.get(\"api_secret\");",
+							"const parameters = pm.request.url.query;",
+							"",
+							"parameters.map((param) => {",
+							"    if (param.key != 'signature' && ",
+							"        param.key != 'timestamp' && ",
+							"        !is_empty(param.value) &&",
+							"        !is_disabled(param.disabled)) {",
+							"            paramsObject[param.key] = param.value;",
+							"            //console.log(encodeURIComponent(param.value));",
+							"            //pm.environment.set(param.key, encodeURIComponent(param.value));",
+							"    }",
+							"})",
+							"        ",
+							"Object.assign(paramsObject, {'timestamp': ts});",
+							"",
+							"if (binance_api_secret) {",
+							"    const queryString = Object.keys(paramsObject).map((key) => {",
+							"        return `${key}=${paramsObject[key]}`;",
+							"    }).join('&');",
+							"    console.log(queryString);",
+							"    const signature = CryptoJS.HmacSHA256(queryString, binance_api_secret).toString();",
+							"    pm.environment.set(\"signature\", signature);",
+							"}",
+							"",
+							"",
+							"function is_disabled(str) {",
+							"    return str == true;",
+							"}",
+							"",
+							"function is_empty(str) {",
+							"    if (typeof str == 'undefined' ||",
+							"        !str || ",
+							"        str.length === 0 || ",
+							"        str === \"\" ||",
+							"        !/[^\\s]/.test(str) ||",
+							"        /^\\s*$/.test(str) ||",
+							"        str.replace(/\\s/g,\"\") === \"\")",
+							"    {",
+							"        return true;",
+							"    }",
+							"    else",
+							"    {",
+							"        return false;",
+							"    }",
+							"}"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "RENT_URL",
+			"value": "https://virtserver.swaggerhub.com/sepulsa/RentABook-API/1.0.0"
+		},
+		{
+			"key": "BINANCE_URL",
+			"value": "https://testnet.binance.vision"
+		},
+		{
+			"key": "api_key",
+			"value": "kuzXc6ba1HF5s5jE48OVZU8rUGVz1jTWtyCN0ajCgmf9ngG4IR0dUzs8MH5dUkXY"
+		},
+		{
+			"key": "api_secret",
+			"value": "DmfOpY5869pdyEnNhnsizTKHSqQ30OirgXyIlqyzzehlFr9wNi2fNlqTXBMmBivr"
+		},
+		{
+			"key": "timestamp",
+			"value": ""
+		},
+		{
+			"key": "signature",
+			"value": ""
+		}
+	]
+}
